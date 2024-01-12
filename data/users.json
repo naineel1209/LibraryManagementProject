@@ -1,0 +1,51 @@
+[
+  {
+    "username": "naineel",
+    "password": "$2b$12$f4nFAU2nJU.5MHvVj/kEvudBPkr3MdeqdN0Loz44mL8OLT5Y0O9Ve",
+    "email": "naineel@gmail.com",
+    "role": "admin",
+    "_id": "87947"
+  },
+  {
+    "username": "naineel2",
+    "password": "$2b$12$3AXc9KtCvs4M94GaVK7mm.xHql5StvQXxvK829.rm/FTpXL1nqcau",
+    "email": "naineel@gmail.com",
+    "role": "admin",
+    "_id": "83509"
+  },
+  {
+    "username": "naineel3",
+    "password": "$2b$12$bY6WejjImaRkj539bd9jsuHalI9jQC6Z5orXsqgPMCe627LudzDoy",
+    "email": "naineel@gmail.com",
+    "role": "admin",
+    "_id": "43394"
+  },
+  {
+    "username": "naineel4",
+    "password": "$2b$12$1afNufNDfZ6Zz2cHYgjjgeOCXmQDTroOSJ2JVPomM.rfnwofhmrHK",
+    "email": "naineel@gmail.com",
+    "role": "admin",
+    "_id": "46955"
+  },
+  {
+    "username": "naineel5",
+    "password": "$2b$12$Y4nLqu5g1ow8mWK2Q/i0l.6QMZAywcVwh30u1NYir0qdWM6yWSIQC",
+    "email": "naineel@gmail.com",
+    "role": "admin",
+    "_id": "19871"
+  },
+  {
+    "username": "naineel6",
+    "password": "$2b$12$WPQJQfxSU88ZNnY.E3rnb.SLTdIUtmJSXgDPBcAv6Hk7QroqT7z4O",
+    "email": "naineel@gmail.com",
+    "role": "user",
+    "_id": "23482"
+  },
+  {
+    "username": "naineel10",
+    "password": "$2b$12$uwA4JwWtgvwi8vB5YhZK/em3wAUuFwuhazACJVRl37nSyvDW3yTW2",
+    "email": "naineel@gmail.com",
+    "role": "user",
+    "_id": "42254"
+  }
+]
