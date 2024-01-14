@@ -81,6 +81,7 @@ router
 
 router.use('/rent', require('./rentRoutes'))
 router.use('/return', require('./returnRoutes'))
+router.use('/lost', require('./lostRoutes'))
 
 router
     .route('/:bookId')
