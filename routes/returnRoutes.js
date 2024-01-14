@@ -84,6 +84,8 @@ router
 
         console.log(rentOrder);
 
+        delete rentOrder.minPayment;
+
         //splice in the rentOrders
         rentOrders[bookId].splice(rentOrderIndex, 1, rentOrder);
 

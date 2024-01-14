@@ -60,12 +60,21 @@ router
         const currentDateFormatted = format(new Date(), 'yyyy-MM-dd');
         const returnDateFormatted = format(new Date(returnDate), 'yyyy-MM-dd');
 
+        const price = priceChart[book.type];
+        let payment = price["rentalFee"];
+
+        if(isAfter(new Date(), returnDate)){
+            const daysDifference = differenceInDays(new Date(), new Date(returnDate));
+            payment += price["rentalFee"] * (daysDifference - 1);
+        }
+
         const rentOrder = {
             rentOrderId: uid.randomUUID(5),
             bookId,
             rentedBy: req.user._id,
             rentDate: currentDateFormatted,
-            returnDate: returnDateFormatted
+            returnDate: returnDateFormatted,
+            minPayment: payment,
         }
 
         if(!rentOrders[rentOrder.bookId]){
