@@ -24,6 +24,9 @@ router
 
                 for personal user:
                 9. Send a GET request to /profile-user to get the profile of the current user with all the books he published and he rented ✔️
+                
+                --> Additional Work - 
+                
                 `
         })
     })

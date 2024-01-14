@@ -47,5 +47,26 @@
     "email": "naineel@gmail.com",
     "role": "user",
     "_id": "42254"
+  },
+  {
+    "username": "naineel11",
+    "password": "$2b$12$idI0mV5UXrsaF9TR3qtpvul5qTaFQjKsOHS8yFvsvfTXIpwPC9hTm",
+    "email": "naineel@gmail.com",
+    "role": "user",
+    "_id": "08023"
+  },
+  {
+    "username": "naineel12",
+    "password": "$2b$12$kDxVdcV48mtyCQF5RvBpu.g3N4T2G1zqrvEvJ0GTynlCDYyBdlWru",
+    "email": "naineel@gmail.com",
+    "role": "user",
+    "_id": "83116"
+  },
+  {
+    "username": "bharat",
+    "password": "$2b$12$sqIRcEFf4VpiLngiyOcD/uM2M1SeEN7zWeKLG3ZNf7FVKPc4V0kbC",
+    "email": "naineel@gmail.com",
+    "role": "user",
+    "_id": "93960"
   }
 ]

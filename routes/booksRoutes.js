@@ -7,9 +7,21 @@ const uid = new ShortUniqueId({
 const CustomError = require('../errors/CustomError')
 const books = require('../data/books.json');
 const bookSchema = require('../model/bookModel')
+const priceChart = require('../data/priceChart.json')
 const fsPromises = require('fs/promises')
 
 //PATH: /books - authenticated users 
+
+router
+    .get('/info', (req, res) => {
+        res.statusMessage = "GET request successful"
+        res.status(200).json({
+            message: "GET request successful",
+            status: 200,
+            priceChart
+        })
+    })
+
 router
     .route('/')
     .get((req, res) => {
@@ -37,6 +49,10 @@ router
             throw new CustomError("Missing field in body", "Missing field in body", 406)
         }
 
+        if(!Object.keys(priceChart).includes(type)){
+            throw new CustomError("Invalid Book Type");
+        }
+
         const book = {
             bookId: uid.randomUUID(3),
             title,
@@ -62,6 +78,9 @@ router
             throw new CustomError("Invalid book details", "Invalid book details", 406)
         }
     })
+
+router.use('/rent', require('./rentRoutes'))
+router.use('/return', require('./returnRoutes'))
 
 router
     .route('/:bookId')
@@ -158,7 +177,5 @@ router
 
     })
 
-router.use('/:bookId/rent', require('./rentRoutes'))
-router.use('/:bookId/return', require('./returnRoutes'))
 
 module.exports = router;

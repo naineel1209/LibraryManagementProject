@@ -1,0 +1,26 @@
+{
+  "980": [
+    {
+      "rentOrderId": "96871",
+      "bookId": "980",
+      "rentedBy": "83116",
+      "rentDate": "2024-01-14",
+      "returnDate": "2024-01-14",
+      "payment": 7,
+      "penalty": 0,
+      "totalPayment": 7,
+      "returned": true
+    },
+    {
+      "rentOrderId": "14779",
+      "bookId": "980",
+      "rentedBy": "93960",
+      "rentDate": "2024-01-14",
+      "returnDate": "2024-01-14",
+      "payment": 7,
+      "penalty": 0,
+      "totalPayment": 7,
+      "returned": true
+    }
+  ]
+}
