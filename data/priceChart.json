@@ -1,0 +1,19 @@
+{
+  "Fiction": {
+    "rentalFee": 5.00,
+    "lateFee": 1.50
+  },
+  "Non-Fiction": {
+    "rentalFee": 7.00,
+    "lateFee": 1.50
+  },
+  "Reference": {
+    "rentalFee": 3.00,
+    "lateFee": 1.50
+  },
+  "Other Types": {
+    "rentalFee": 6.00,
+    "lateFee": 1.50
+  }
+}
+
