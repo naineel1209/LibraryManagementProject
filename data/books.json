@@ -28,9 +28,9 @@
   },
   {
     "bookId": "945",
-    "title": "1984",
-    "type": "Dystopian",
-    "author": "George Orwell",
+    "title": "The Da Vinci Code",
+    "type": "Mystery",
+    "author": "Dan Brown",
     "available": true,
     "publishedBy": "83509",
     "currentlyHeldBy": -1
@@ -105,6 +105,15 @@
     "author": "Dan Brown",
     "available": true,
     "publishedBy": "42254",
+    "currentlyHeldBy": -1
+  },
+  {
+    "bookId": "019",
+    "title": "The Da Vinci Code",
+    "type": "Mystery",
+    "author": "Dan Brown",
+    "available": true,
+    "publishedBy": "83509",
     "currentlyHeldBy": -1
   }
 ]

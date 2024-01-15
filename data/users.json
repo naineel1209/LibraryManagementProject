@@ -47,5 +47,12 @@
     "email": "naineel@gmail.com",
     "role": "user",
     "_id": "42254"
+  },
+  {
+    "username": "naineel11",
+    "password": "$2b$12$Jq/8AnrZkUCPukAB.eDRXed1JTJpFPwru2TBm5mg9gn9l6mjev.se",
+    "email": "naineel@gmail.com",
+    "role": "user",
+    "_id": "18519"
   }
 ]
