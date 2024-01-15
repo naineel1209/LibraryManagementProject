@@ -16,7 +16,6 @@ const verifyToken = (req, res, next) => {
         req.user = users.find(user => user.username === decoded.username);
         next();
     } catch (err) {
-        console.log('not going here')
         //!the access token has expired and we need to generate a new one using the refresh token
         if (err.message.includes("jwt expired") && refreshToken) {
             try {

@@ -5,7 +5,6 @@ const router = Router();
 router
     .route('/')
     .get((req, res) => {
-        console.log(req.user);
         res.statusMessage = "GET request successful"
 
         res.status(200).json({

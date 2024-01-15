@@ -1,79 +1,72 @@
 [
   {
-    "username": "naineel",
-    "password": "$2b$12$f4nFAU2nJU.5MHvVj/kEvudBPkr3MdeqdN0Loz44mL8OLT5Y0O9Ve",
+    "username": "naineel1",
+    "password": "$2b$12$N7T1c5yOSPbJ25ANTnVH1e0E33AXey3zTcP7Vl1saOGsLAKeVMnnO",
     "email": "naineel@gmail.com",
     "role": "admin",
-    "_id": "87947"
+    "_id": "58997"
   },
   {
     "username": "naineel2",
-    "password": "$2b$12$3AXc9KtCvs4M94GaVK7mm.xHql5StvQXxvK829.rm/FTpXL1nqcau",
+    "password": "$2b$12$Ex.9gvVq2drp2Z1Q5ar9o.vFtjWR.c51Ec877garANW7xhjeDPPe.",
     "email": "naineel@gmail.com",
     "role": "admin",
-    "_id": "83509"
+    "_id": "89261"
   },
   {
     "username": "naineel3",
-    "password": "$2b$12$bY6WejjImaRkj539bd9jsuHalI9jQC6Z5orXsqgPMCe627LudzDoy",
+    "password": "$2b$12$uBsFI6jKdsuSP6Tkm6NQBuBs/BEZZwhbb9goWjNoQuTVwv7QdbKcG",
     "email": "naineel@gmail.com",
     "role": "admin",
-    "_id": "43394"
+    "_id": "16899"
   },
   {
     "username": "naineel4",
-    "password": "$2b$12$1afNufNDfZ6Zz2cHYgjjgeOCXmQDTroOSJ2JVPomM.rfnwofhmrHK",
+    "password": "$2b$12$uUaVvGqDJpSApyD1xhnWoeFRZrFVljQO01uCfd/ZGrZxT26Uqiiru",
     "email": "naineel@gmail.com",
     "role": "admin",
-    "_id": "46955"
+    "_id": "51297"
   },
   {
     "username": "naineel5",
-    "password": "$2b$12$Y4nLqu5g1ow8mWK2Q/i0l.6QMZAywcVwh30u1NYir0qdWM6yWSIQC",
+    "password": "$2b$12$YGpyFuxtcOt7FG7Xjl8OgOzWkms2Rnk/acMcJsSXqwpI3/7VloTkS",
     "email": "naineel@gmail.com",
     "role": "admin",
-    "_id": "19871"
+    "_id": "63756"
   },
   {
     "username": "naineel6",
-    "password": "$2b$12$WPQJQfxSU88ZNnY.E3rnb.SLTdIUtmJSXgDPBcAv6Hk7QroqT7z4O",
+    "password": "$2b$12$hhYGTMWRrWlKlwcW6L8CDeog2oXu.0C47LFAMaL1dU2Dqmkq4FLxm",
     "email": "naineel@gmail.com",
     "role": "user",
-    "_id": "23482"
+    "_id": "67994"
+  },
+  {
+    "username": "naineel7",
+    "password": "$2b$12$HtXuIKjNfF9/1HrD08Bgie2sk6YkC126pFGRBTllrPmDbYoaM28.y",
+    "email": "naineel@gmail.com",
+    "role": "user",
+    "_id": "41261"
+  },
+  {
+    "username": "naineel8",
+    "password": "$2b$12$AgJjUH8eW.PLoWOHKTZP9O2TB4V2Ni8z9fMq/AXqkBHT5Ck6o/k26",
+    "email": "naineel@gmail.com",
+    "role": "user",
+    "_id": "78767"
+  },
+  {
+    "username": "naineel9",
+    "password": "$2b$12$XMGGFdzo9bDlXE7euXILxOLshav.KtUnimaM3iDQGI6yJghzcWjUK",
+    "email": "naineel@gmail.com",
+    "role": "user",
+    "_id": "89300"
   },
   {
     "username": "naineel10",
-    "password": "$2b$12$uwA4JwWtgvwi8vB5YhZK/em3wAUuFwuhazACJVRl37nSyvDW3yTW2",
+    "password": "$2b$12$L0Mz9nacBWlQyKeKUcNSG.J2YXDSIb8sIHTiicsz7VohI0fV.6XeO",
     "email": "naineel@gmail.com",
     "role": "user",
-    "_id": "42254"
-  },
-  {
-    "username": "naineel11",
-<<<<<<< HEAD
-    "password": "$2b$12$Jq/8AnrZkUCPukAB.eDRXed1JTJpFPwru2TBm5mg9gn9l6mjev.se",
-    "email": "naineel@gmail.com",
-    "role": "user",
-    "_id": "18519"
-=======
-    "password": "$2b$12$idI0mV5UXrsaF9TR3qtpvul5qTaFQjKsOHS8yFvsvfTXIpwPC9hTm",
-    "email": "naineel@gmail.com",
-    "role": "user",
-    "_id": "08023"
-  },
-  {
-    "username": "naineel12",
-    "password": "$2b$12$kDxVdcV48mtyCQF5RvBpu.g3N4T2G1zqrvEvJ0GTynlCDYyBdlWru",
-    "email": "naineel@gmail.com",
-    "role": "user",
-    "_id": "83116"
-  },
-  {
-    "username": "bharat",
-    "password": "$2b$12$sqIRcEFf4VpiLngiyOcD/uM2M1SeEN7zWeKLG3ZNf7FVKPc4V0kbC",
-    "email": "naineel@gmail.com",
-    "role": "user",
-    "_id": "93960"
->>>>>>> b6c39ec57dc1624c1d9eaa3d114aec38fd532a22
+    "_id": "45620"
   }
 ]

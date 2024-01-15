@@ -1,152 +1,110 @@
 [
   {
-    "bookId": "306",
-    "title": "The Great Gatsby",
-    "type": "Fiction",
-    "author": "F. Scott Fitzgerald",
-    "available": true,
-    "publishedBy": "83509",
-    "currentlyHeldBy": -1
-  },
-  {
-    "bookId": "962",
-    "title": "The Great Gatsby",
-    "type": "Fiction",
-    "author": "F. Scott Fitzgerald",
-    "available": true,
-    "publishedBy": "83509",
-    "currentlyHeldBy": -1
-  },
-  {
-    "bookId": "401",
-    "title": "To Kill a Mockingbird",
-    "type": "Fiction",
-    "author": "Harper Lee",
-    "available": true,
-    "publishedBy": "83509",
-    "currentlyHeldBy": -1
-  },
-  {
-    "bookId": "945",
-<<<<<<< HEAD
+    "bookId": "368",
     "title": "The Da Vinci Code",
-    "type": "Mystery",
-    "author": "Dan Brown",
-=======
-    "title": "1984",
-    "type": "Non-Fiction",
-    "author": "George Orwell",
->>>>>>> b6c39ec57dc1624c1d9eaa3d114aec38fd532a22
-    "available": true,
-    "publishedBy": "83509",
-    "currentlyHeldBy": -1
-  },
-  {
-    "bookId": "886",
-    "title": "The Catcher in the Rye",
-    "type": "Non-Fiction",
-    "author": "J.D. Salinger",
-    "available": true,
-    "publishedBy": "83509",
-    "currentlyHeldBy": -1
-  },
-  {
-    "bookId": "533",
-    "title": "The Hobbit",
-    "type": "Reference",
-    "author": "J.R.R. Tolkien",
-    "available": true,
-    "publishedBy": "83509",
-    "currentlyHeldBy": -1
-  },
-  {
-    "bookId": "718",
-    "title": "Pride and Prejudice",
     "type": "Other Types",
-    "author": "Jane Austen",
-    "available": true,
-    "publishedBy": "83509",
-    "currentlyHeldBy": -1
+    "author": "Dan Brown",
+    "available": false,
+    "publishedBy": "58997",
+    "currentlyHeldBy": "67994"
   },
   {
-    "bookId": "261",
+    "bookId": "721",
+    "title": "The Da Vinci Code",
+    "type": "Other Types",
+    "author": "Dan Brown",
+    "available": false,
+    "publishedBy": "58997",
+    "currentlyHeldBy": "67994"
+  },
+  {
+    "bookId": "060",
     "title": "The Da Vinci Code",
     "type": "Other Types",
     "author": "Dan Brown",
     "available": true,
-    "publishedBy": "83509",
+    "publishedBy": "58997",
     "currentlyHeldBy": -1
   },
   {
-    "bookId": "135",
+    "bookId": "767",
+    "title": "The Da Vinci Code",
+    "type": "Other Types",
+    "author": "Dan Brown",
+    "available": false,
+    "publishedBy": "58997",
+    "currentlyHeldBy": "67994"
+  },
+  {
+    "bookId": "131",
     "title": "The Da Vinci Code",
     "type": "Other Types",
     "author": "Dan Brown",
     "available": true,
-    "publishedBy": "83509",
+    "publishedBy": "58997",
     "currentlyHeldBy": -1
   },
   {
-    "bookId": "668",
+    "bookId": "950",
     "title": "The Da Vinci Code",
     "type": "Other Types",
     "author": "Dan Brown",
     "available": true,
-    "publishedBy": "83509",
+    "publishedBy": "58997",
     "currentlyHeldBy": -1
   },
   {
-    "bookId": "125",
+    "bookId": "432",
     "title": "The Da Vinci Code",
     "type": "Other Types",
     "author": "Dan Brown",
     "available": true,
-    "publishedBy": "43394",
+    "publishedBy": "58997",
     "currentlyHeldBy": -1
   },
   {
-    "bookId": "074",
+    "bookId": "747",
     "title": "The Da Vinci Code",
     "type": "Other Types",
     "author": "Dan Brown",
     "available": true,
-    "publishedBy": "42254",
+    "publishedBy": "58997",
     "currentlyHeldBy": -1
   },
   {
-<<<<<<< HEAD
-    "bookId": "019",
-    "title": "The Da Vinci Code",
-    "type": "Mystery",
-    "author": "Dan Brown",
-    "available": true,
-    "publishedBy": "83509",
-=======
-    "bookId": "824",
+    "bookId": "350",
     "title": "The Da Vinci Code",
     "type": "Other Types",
     "author": "Dan Brown",
     "available": true,
-    "publishedBy": "42254",
+    "publishedBy": "58997",
     "currentlyHeldBy": -1
   },
   {
-    "bookId": "980",
-    "title": "Rann ma khilyu gulab",
-    "type": "Non-Fiction",
-    "author": "Sharad Thakar",
+    "bookId": "521",
+    "title": "The Da Vinci Code",
+    "type": "Other Types",
+    "author": "Dan Brown",
     "available": true,
-    "publishedBy": "43394",
+    "publishedBy": "58997",
     "currentlyHeldBy": -1
   },
   {
-    "bookId": "878",
-    "title": "Rann ma khilyu gulab",
-    "type": "Non-Fiction",
-    "author": "Sharad Thakar",
+    "bookId": "932",
+    "title": "The Da Vinci Code",
+    "type": "Other Types",
+    "author": "Dan Brown",
     "available": true,
-    "publishedBy": "93960",
->>>>>>> b6c39ec57dc1624c1d9eaa3d114aec38fd532a22
+    "publishedBy": "58997",
+    "currentlyHeldBy": -1
+  },
+  {
+    "bookId": "747",
+    "title": "The Da Vinci Code",
+    "type": "Other Types",
+    "author": "Dan Brown",
+    "available": true,
+    "publishedBy": "67994",
     "currentlyHeldBy": -1
   }
 ]

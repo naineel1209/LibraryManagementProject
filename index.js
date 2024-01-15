@@ -12,6 +12,10 @@ const { verifyToken } = require('./middlewares/authMiddleware')
 
 const PORT = process.env.PORT || 3000;
 
+// delete require.cache[require.resolve('./data/books.json')];
+// delete require.cache[require.resolve('./data/users.json')];
+// delete require.cache[require.resolve('./data/rentOrders.json')];
+
 //parsing the requests and body data
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
