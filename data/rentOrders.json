@@ -1,4 +1,30 @@
 {
+  "131": [
+    {
+      "rentOrderId": "51043",
+      "bookId": "131",
+      "rentedBy": "67994",
+      "rentDate": "2024-01-15",
+      "returnDate": "2024-01-15",
+      "payment": 6,
+      "penalty": 0,
+      "totalPayment": 6,
+      "returned": true
+    },
+    {
+      "rentOrderId": "78222",
+      "bookId": "131",
+      "rentedBy": "67994",
+      "rentDate": "2024-01-15",
+      "returnDate": "2024-01-20",
+      "minPayment": 24,
+      "lost": true,
+      "payment": 6,
+      "penalty": 60,
+      "totalPayment": 66,
+      "returned": true
+    }
+  ],
   "271": [
     {
       "rentOrderId": "96311",
@@ -14,10 +40,38 @@
       "returned": true
     }
   ],
+  "350": [
+    {
+      "rentOrderId": "25587",
+      "bookId": "350",
+      "rentedBy": "89261",
+      "rentDate": "2024-01-15",
+      "returnDate": "2024-01-15",
+      "payment": 6,
+      "penalty": 0,
+      "totalPayment": 6,
+      "returned": true
+    }
+  ],
   "368": [
     {
       "rentOrderId": "13263",
       "bookId": "368",
+      "rentedBy": "67994",
+      "rentDate": "2024-01-15",
+      "returnDate": "2024-01-20",
+      "minPayment": 24,
+      "lost": true,
+      "payment": 6,
+      "penalty": 60,
+      "totalPayment": 66,
+      "returned": true
+    }
+  ],
+  "432": [
+    {
+      "rentOrderId": "64336",
+      "bookId": "432",
       "rentedBy": "67994",
       "rentDate": "2024-01-15",
       "returnDate": "2024-01-20",
@@ -183,6 +237,21 @@
     {
       "rentOrderId": "43272",
       "bookId": "912",
+      "rentedBy": "67994",
+      "rentDate": "2024-01-15",
+      "returnDate": "2024-01-20",
+      "minPayment": 24,
+      "lost": true,
+      "payment": 6,
+      "penalty": 60,
+      "totalPayment": 66,
+      "returned": true
+    }
+  ],
+  "950": [
+    {
+      "rentOrderId": "99195",
+      "bookId": "950",
       "rentedBy": "67994",
       "rentDate": "2024-01-15",
       "returnDate": "2024-01-20",

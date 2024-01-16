@@ -4,7 +4,7 @@ const uid = new ShortUniqueId({
 })
 const CustomError = require('../errors/CustomError')
 
-delete require.cache[require.resolve('../data/books.json')];
+// delete require.cache[require.resolve('../data/books.json')];
 const books = require('../data/books.json');
 
 const bookSchema = require('../model/bookModel')
@@ -70,10 +70,11 @@ const postBook = async (req, res) => {
 
 const getAsingleBook = (req, res) => {
     delete require.cache[require.resolve('../data/books.json')];
-    const reloadedBooks = require('../data/books.json');
+    // const reloadedBooks = require('../data/books.json');
+
     const { bookId } = req.params;
 
-    const book = reloadedBooks.find(book => {
+    const book = books.find(book => {
         return book.bookId === bookId
     })
 

@@ -188,4 +188,27 @@ const returnBook = async (req, res) => {
 
 }
 
-module.exports = { rentBook, returnBook }
+const rentHistory = async (req, res) => {
+    const { bookId } = req.params;
+
+    if (!bookId) {
+        throw new CustomError("Missing field in params", "Missing field in params", 406)
+    }
+
+    if (rentOrders[bookId]) {
+        res.statusMessage = "Rent history fetched successfully"
+        res.status(200).json({
+            message: "Rent history fetched successfully",
+            status: 200,
+            rentOrders: rentOrders[bookId]
+        })
+    } else {
+        res.statusMessage = "Rent history fetched successfully"
+        res.status(200).json({
+            message: "Rent history fetched successfully",
+            status: 200,
+            rentOrders: []
+        })
+    }
+}
+module.exports = { rentBook, returnBook, rentHistory }

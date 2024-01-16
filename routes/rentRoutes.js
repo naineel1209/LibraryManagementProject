@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const router = Router({ mergeParams: true });
-const { rentBook } = require('../controllers/rentReturnControllers');
+const { rentBook, rentHistory } = require('../controllers/rentReturnControllers');
 
 
 //PATH: /books/rent - authenticated users
@@ -8,6 +8,11 @@ const { rentBook } = require('../controllers/rentReturnControllers');
 router
     .route('/')
     .get(rentBook)
+
+
+router
+    .route('/:bookId/history')
+    .get(rentHistory)
 
 
 module.exports = router;

@@ -40,27 +40,9 @@
     "title": "The Da Vinci Code",
     "type": "Other Types",
     "author": "Dan Brown",
-    "available": true,
+    "available": false,
     "publishedBy": "58997",
-    "currentlyHeldBy": -1
-  },
-  {
-    "bookId": "950",
-    "title": "The Da Vinci Code",
-    "type": "Other Types",
-    "author": "Dan Brown",
-    "available": true,
-    "publishedBy": "58997",
-    "currentlyHeldBy": -1
-  },
-  {
-    "bookId": "432",
-    "title": "The Da Vinci Code",
-    "type": "Other Types",
-    "author": "Dan Brown",
-    "available": true,
-    "publishedBy": "58997",
-    "currentlyHeldBy": -1
+    "currentlyHeldBy": "67994"
   },
   {
     "bookId": "747",
