@@ -1,22 +1,10 @@
-const ShortUniqueId = require('short-unique-id');
-const uid = new ShortUniqueId({
-    dictionary: 'number',
-})
 const CustomError = require('../errors/CustomError')
-
-// delete require.cache[require.resolve('../data/books.json')];
-const books = require('../data/books.json');
-
-const bookSchema = require('../model/bookModel')
+const Book = require('../model/bookModel')
 const priceChart = require('../data/priceChart.json')
-const fsPromises = require('fs/promises')
 
-
-const getAvailableBooks = (req, res) => {
+const getAvailableBooks = async (req, res) => {
     //! GET books - get all books available to rent
-    const availableBooks = books.filter(book => {
-        return book.available;
-    })
+    const availableBooks = await Book.find({ available: true, lost: false }).populate("publishedBy", "username");
 
     res.statusMessage = "GET request successful"
     res.status(200).json({
@@ -30,11 +18,6 @@ const postBook = async (req, res) => {
     const { title, type, author } = req.body;
 
     if (!title || !type || !author) {
-        // res.statusMessage = "Missing field in body"
-        // res.status(406).json({
-        //     message: "Missing field in body",
-        //     status: 406
-        // })
         throw new CustomError("Missing field in body", "Missing field in body", 406)
     }
 
@@ -42,43 +25,28 @@ const postBook = async (req, res) => {
         throw new CustomError("Invalid Book Type");
     }
 
-    const book = {
-        bookId: uid.randomUUID(3),
+    const book = new Book({
         title,
         type,
         author,
-        available: true,
         publishedBy: req.user._id,
-        currentlyHeldBy: -1,
-    }
+    });
 
-    if (bookSchema.validate(book)) {
-        books.push(book);
+    book.populate("publishedBy", "username");
 
-        await fsPromises.writeFile('./data/books.json', JSON.stringify(books, null, 2));
+    await book.save();
 
-        res.statusMessage = "Book added successfully"
-        res.status(201).json({
-            message: "Book added successfully",
-            status: 201,
-            book
-        })
-    } else {
-        throw new CustomError("Invalid book details", "Invalid book details", 406)
-    }
+    res.statusMessage = "Book added successfully"
+    res.status(201).json({
+        message: "Book added successfully",
+        book
+    })
 }
 
-const getAsingleBook = (req, res) => {
-    delete require.cache[require.resolve('../data/books.json')];
-    // const reloadedBooks = require('../data/books.json');
-
+const getAsingleBook = async (req, res) => {
     const { bookId } = req.params;
 
-    const book = books.find(book => {
-        return book.bookId === bookId
-    })
-
-    console.log(book);
+    const book = await Book.findById(bookId).populate("publishedBy", "username").populate("currentlyHeldBy", "username");
 
     if (!book) {
         throw new CustomError("Book not found", "Book not found", 404)
@@ -94,22 +62,35 @@ const getAsingleBook = (req, res) => {
 const deleteAsingleBook = async (req, res) => {
     const { bookId } = req.params;
 
-    const bookIndex = books.findIndex(book => {
-        return book.bookId === bookId
-    })
+    // const bookIndex = books.findIndex(book => {
+    //     return book.bookId === bookId
+    // })
 
-    if (bookIndex === -1) {
+    // if (bookIndex === -1) {
+    //     throw new CustomError("Book not found", "Book not found", 404)
+    // }
+
+    // const book = books[bookIndex];
+    // if (book.publishedBy !== req.user._id || req.user.role !== "admin") {
+    //     throw new CustomError("Unauthorized", "Unauthorized", 401)
+    // }
+
+    // books.splice(bookIndex, 1);
+
+    // await fsPromises.writeFile('./data/books.json', JSON.stringify(books, null, 2));
+    const book = await Book.findById(bookId);
+
+    if (!book) {
         throw new CustomError("Book not found", "Book not found", 404)
     }
 
-    const book = books[bookIndex];
+    if (book.lost) {
+        throw new CustomError("Book is lost", "Book is lost", 409)
+    }
+
     if (book.publishedBy !== req.user._id || req.user.role !== "admin") {
         throw new CustomError("Unauthorized", "Unauthorized", 401)
     }
-
-    books.splice(bookIndex, 1);
-
-    await fsPromises.writeFile('./data/books.json', JSON.stringify(books, null, 2));
 
     res.statusMessage = "Book deleted successfully"
     res.status(200).json({
@@ -131,15 +112,15 @@ const updateAsingleBook = async (req, res) => {
         throw new CustomError("Invalid Book Type");
     }
 
-    const bookIndex = books.findIndex(book => {
-        return book.bookId === bookId
-    })
+    const book = await Book.findById(bookId).populate("publishedBy", "username").populate("currentlyHeldBy", "username");
 
-    if (bookIndex === -1) {
+    if (!book) {
         throw new CustomError("Book not found", "Book not found", 404)
     }
 
-    const book = books[bookIndex];
+    if (book.lost) {
+        throw new CustomError("Book is lost", "Book is lost", 409)
+    }
 
     if (book.publishedBy !== req.user._id || req.user.role !== "admin") {
         throw new CustomError("Unauthorized", "Unauthorized", 401)
@@ -157,19 +138,14 @@ const updateAsingleBook = async (req, res) => {
         book.author = author;
     }
 
-    if (bookSchema.validate(book)) {
-        await fsPromises.writeFile('./data/books.json', JSON.stringify(books, null, 2));
+    await book.save();
 
-        res.statusMessage = "Book updated successfully"
-        res.status(200).json({
-            message: "Book updated successfully",
-            status: 200,
-            book
-        })
-    } else {
-        throw new CustomError("Invalid book details", "Invalid book details", 406)
-    }
-
+    res.statusMessage = "Book updated successfully"
+    return res.status(200).json({
+        message: "Book updated successfully",
+        status: 200,
+        book
+    })
 }
 
 module.exports = { getAvailableBooks, postBook, getAsingleBook, deleteAsingleBook, updateAsingleBook }

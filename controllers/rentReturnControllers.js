@@ -1,16 +1,7 @@
 const CustomError = require('../errors/CustomError')
-// delete require.cache[require.resolve('../data/books.json')];
-// delete require.cache[require.resolve('../data/rentOrders.json')];
-const books = require('../data/books.json');
+const Book = require('../model/bookModel')
+const RentOrder = require('../model/rentOrder')
 const priceChart = require('../data/priceChart.json')
-const rentOrders = require('../data/rentOrders.json')
-const bookSchema = require('../model/bookModel')
-const fsPromises = require('fs/promises')
-
-const ShortUniqueId = require('short-unique-id');
-const uid = new ShortUniqueId({
-    dictionary: 'number',
-})
 
 const { isAfter, differenceInDays, format } = require('date-fns');
 
@@ -29,9 +20,7 @@ const rentBook = async (req, res) => {
         throw new CustomError("Invalid return date", "Invalid return date", 406)
     }
 
-    const book = books.find(book => {
-        return book.bookId === bookId
-    })
+    const book = await Book.findById(bookId);
 
     //book not found
     if (!book) {
@@ -44,16 +33,16 @@ const rentBook = async (req, res) => {
     }
 
     //book published by currentUser
-    if (req.user._id === book.publishedBy) {
+    if (req.user._id.equals(book.publishedBy) === true) {
         throw new CustomError("You cannot rent your own book", "You cannot rent your own book", 409)
     }
 
     //book already rented by currentUser
-    if (req.user._id === book.currentlyHeldBy) {
+    if (req.user._id.equals(book.currentlyHeldBy) === true) {
         throw new CustomError("You have already rented this book", "You have already rented this book", 409);
     }
 
-    //TODO: rent order to be made
+    //: rent order to be made
     const currentDateFormatted = format(new Date(), 'yyyy-MM-dd');
     const returnDateFormatted = format(new Date(returnDate), 'yyyy-MM-dd');
 
@@ -65,27 +54,21 @@ const rentBook = async (req, res) => {
         payment += price["rentalFee"] * (daysDifference - 1);
     }
 
-    const rentOrder = {
-        rentOrderId: uid.randomUUID(5),
+    const rentOrder = new RentOrder({
         bookId,
         rentedBy: req.user._id,
         rentDate: currentDateFormatted,
         returnDate: returnDateFormatted,
-        minPayment: payment,
-    }
-
-    if (!rentOrders[rentOrder.bookId]) {
-        rentOrders[rentOrder.bookId] = [];
-    }
-
-    rentOrders[rentOrder.bookId].push(rentOrder);
+        payment,
+    })
 
     //make the book unavailable for rent and update the currentlyHeldBy
     book.available = false;
     book.currentlyHeldBy = req.user._id;
 
-    await fsPromises.writeFile('./data/books.json', JSON.stringify(books, null, 2));
-    await fsPromises.writeFile('./data/rentOrders.json', JSON.stringify(rentOrders, null, 2));
+    await rentOrder.populate("rentedBy", "username");
+    await book.save();
+    await rentOrder.save();
 
     res.statusMessage = "Book rented successfully"
     res.status(200).json({
@@ -101,9 +84,7 @@ const returnBook = async (req, res) => {
     const { bookId, rentOrderId } = req.body;
 
     //TODO: return to be made
-    const book = books.find(book => {
-        return book.bookId === bookId
-    })
+    const book = await Book.findById(bookId);
 
     if (!book) {
         throw new CustomError("Book not found", "Book not found", 404)
@@ -113,20 +94,14 @@ const returnBook = async (req, res) => {
         throw new CustomError("Book not rented", "Book not rented", 409)
     }
 
-    if (req.user._id !== book.currentlyHeldBy) {
+    console.log(req.user._id, book.currentlyHeldBy)
+
+    if (req.user._id.equals(book.currentlyHeldBy) === false) {
         throw new CustomError("You cannot return a book you did not rent", "You cannot return a book you did not rent", 409)
     }
 
     //find the rent order
-    const rentOrderIndex = rentOrders[bookId].findIndex(order => {
-        return order.rentOrderId === rentOrderId;
-    })
-
-    if (rentOrderIndex === -1) {
-        throw new CustomError("Rent order not found", "Rent order not found", 404)
-    }
-
-    const rentOrder = rentOrders[bookId][rentOrderIndex];
+    const rentOrder = await RentOrder.findById(rentOrderId);
 
     if (rentOrder.returned) {
         throw new CustomError("You have already returned this order", "You have already returned this order", 406)
@@ -165,18 +140,15 @@ const returnBook = async (req, res) => {
     rentOrder.returned = true;
     rentOrder.returnDate = format(currentDate, 'yyyy-MM-dd');
 
-    delete rentOrder.minPayment;
-
-    //splice in the rentOrders
-    rentOrders[bookId].splice(rentOrderIndex, 1, rentOrder);
 
     //update the book
     book.available = true;
-    book.currentlyHeldBy = -1;
+    book.currentlyHeldBy = null;
 
     //write the rentOrders to the file
-    await fsPromises.writeFile('./data/rentOrders.json', JSON.stringify(rentOrders, null, 2))
-    await fsPromises.writeFile('./data/books.json', JSON.stringify(books, null, 2))
+    await rentOrder.populate("rentedBy", "username");
+    await rentOrder.save();
+    await book.save();
 
     res.statusMessage = "Book returned successfully"
     res.status(200).json({
@@ -195,20 +167,13 @@ const rentHistory = async (req, res) => {
         throw new CustomError("Missing field in params", "Missing field in params", 406)
     }
 
-    if (rentOrders[bookId]) {
-        res.statusMessage = "Rent history fetched successfully"
-        res.status(200).json({
-            message: "Rent history fetched successfully",
-            status: 200,
-            rentOrders: rentOrders[bookId]
-        })
-    } else {
-        res.statusMessage = "Rent history fetched successfully"
-        res.status(200).json({
-            message: "Rent history fetched successfully",
-            status: 200,
-            rentOrders: []
-        })
-    }
+    const rentOrders = await RentOrder.find({ bookId }).populate("rentedBy", "username").populate("bookId");
+
+    res.statusMessage = "GET request successful"
+    res.status(200).json({
+        message: "GET request successful",
+        status: 200,
+        rentOrders
+    })
 }
 module.exports = { rentBook, returnBook, rentHistory }

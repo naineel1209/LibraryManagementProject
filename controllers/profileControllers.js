@@ -1,26 +1,24 @@
-const CustomError = require('../errors/CustomError')
-// delete require.cache[require.resolve('../data/books.json')];
+const Book = require('../model/bookModel')
+const RentOrder = require('../model/rentOrder')
 const books = require('../data/books.json');
-const fsPromises = require('fs/promises');
 
 const findProfile = async (req, res) => {
     //! GET profile - get all books rented by the currentUser, publishedByUser
     const currentUser = req.user;
 
-    const rentedBooks = books.filter(book => {
-        return book.currentlyHeldBy === currentUser._id
-    })
+    const rentedBooks = await Book.find({ currentlyHeldBy: currentUser._id }).populate("publishedBy", "username").populate("currentlyHeldBy", "username");
 
-    const publishedBooks = books.filter(book => {
-        return book.publishedBy === currentUser._id
-    });
+    const publishedBooks = await Book.find({ publishedBy: currentUser._id }).populate("publishedBy", "username").populate("currentlyHeldBy", "username");
+
+    const previousRentedBooks = await RentOrder.find({ rentedBy: currentUser._id, returned: true }).populate("bookId", "title type author publishedBy currentlyHeldBy");
 
     res.statusMessage = "GET request successful"
     res.status(200).json({
         message: "GET request successful",
         currentUser,
         rentedBooks,
-        publishedBooks
+        publishedBooks,
+        previousRentedBooks
     })
 }
 

@@ -9,12 +9,9 @@ const logger = require('./config/winstonConfig');
 const { message } = require('./model/userModel');
 const cookieParser = require('cookie-parser');
 const { verifyToken } = require('./middlewares/authMiddleware')
+const connect2db = require('./database/connect2db.js')
 
 const PORT = process.env.PORT || 3000;
-
-// delete require.cache[require.resolve('./data/books.json')];
-// delete require.cache[require.resolve('./data/users.json')];
-// delete require.cache[require.resolve('./data/rentOrders.json')];
 
 //parsing the requests and body data
 app.use(express.json())
@@ -54,6 +51,17 @@ app.use((err, req, res, next) => {
     })
 })
 
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`)
-})
+async function startServer() {
+    try {
+        await connect2db();
+        app.listen(3000, () => {
+            console.log(`Server is running on port ${PORT}`);
+        })
+    } catch (err) {
+        console.log(err);
+        logger.error(err.message)
+        process.exit(1)
+    }
+}
+
+startServer();
