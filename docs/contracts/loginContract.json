@@ -1,0 +1,84 @@
+{
+    "getLoginResponse": {
+        "type": "object",
+        "properties": {
+            "message": {
+                "type": "string"
+            },
+            "instructions": {
+                "type": "string"
+            }
+        }
+    },
+    "postLoginRequest": {
+        "type": "object",
+        "properties": {
+            "username": {
+                "type": "string",
+                "required": true
+            },
+            "password": {
+                "type": "string",
+                "required": true
+            }
+        }
+    },
+    "postLoginResponse": {
+        "type": "object",
+        "properties": {
+            "message": {
+                "type": "string"
+            },
+            "status": {
+                "type": "number",
+                "example": 200
+            },
+            "user": {
+                "$ref": "./user.json#/user"
+            }
+        }
+    },
+    "postRegisterRequest": {
+        "type": "object",
+        "properties": {
+            "username": {
+                "type": "string",
+                "required": true
+            },
+            "password": {
+                "type": "string",
+                "required": true
+            },
+            "email": {
+                "type": "string",
+                "required": true
+            }
+        }
+    },
+    "postRegisterResponse": {
+        "type": "object",
+        "properties": {
+            "message": {
+                "type": "string"
+            },
+            "status": {
+                "type": "number",
+                "example": 200
+            },
+            "user": {
+                "$ref": "./user.json#/user"
+            }
+        }
+    },
+    "getLogoutResponse": {
+        "type": "object",
+        "properties": {
+            "message": {
+                "type": "string"
+            },
+            "contents": {
+                "type": "string"
+            }
+        }
+    }
+}

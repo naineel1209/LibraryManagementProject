@@ -22,7 +22,7 @@ const postBook = async (req, res) => {
     }
 
     if (!Object.keys(priceChart).includes(type)) {
-        throw new CustomError("Invalid Book Type");
+        throw new CustomError("Invalid Book Type", "Invalid Book Type", 406);
     }
 
     const book = new Book({

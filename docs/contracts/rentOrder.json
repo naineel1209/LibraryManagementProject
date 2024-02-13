@@ -1,0 +1,40 @@
+{
+    "rentOrder": {
+        "type": "object",
+        "properties": {
+            "id": {
+                "type": "string"
+            },
+            "bookId": {
+                "type": "string"
+            },
+            "rentedBy": {
+                "type": "string"
+            },
+            "rentDate": {
+                "type": "string"
+            },
+            "returnDate": {
+                "type": "string"
+            },
+            "lost": {
+                "type": "boolean"
+            },
+            "payment": {
+                "type": "number"
+            },
+            "penalty": {
+                "type": "number"
+            },
+            "totalPayment": {
+                "type": "number"
+            },
+            "createdAt": {
+                "type": "string"
+            },
+            "updatedAt": {
+                "type": "string"
+            }
+        }
+    }
+}

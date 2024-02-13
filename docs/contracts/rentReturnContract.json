@@ -1,0 +1,30 @@
+{
+    "rentBook": {
+        "type": "object",
+        "properties": {
+            "message": {
+                "type": "string"
+            },
+            "book": {
+                "$ref": "./book.json#/book"
+            },
+            "rentOrder": {
+                "$ref": "./rentOrder.json#/rentOrder"
+            }
+        }
+    },
+    "rentBookHistory": {
+        "type": "object",
+        "properties": {
+            "message": {
+                "type": "string"
+            },
+            "status": {
+                "type": "string"
+            },
+            "rentOrder": {
+                "$ref": "./rentOrder.json#/rentOrder"
+            }
+        }
+    }
+}

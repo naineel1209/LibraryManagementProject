@@ -1,0 +1,62 @@
+{
+  "info": {
+    "title": "Library Management API",
+    "version": "0.0.1",
+    "description": "This is a documentation for the library management system. This is one of the major APIs to do CRUD operations on the library management system. This API is developed by Zuru Tech.",
+    "termsOfService": "https://zuru.tech/",
+    "contact": {
+      "email": "apiteam@zuru.tech"
+    }
+  },
+  "host": "localhost:3001",
+  "basePath": "/",
+  "apis": [
+    "./routes/*.routes.js"
+  ],
+  "schemes": [
+    "http"
+  ],
+  "swagger": "2.0",
+  "paths": {
+    "/login": {
+      "get": {
+        "description": "Get instructions for login",
+        "tags": [
+          "Login"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "GET request successful",
+            "schema": {
+              "$ref": "contracts/loginContract.json#/getLoginResponse"
+            }
+          }
+        }
+      },
+      "post": {
+        "description": "Post a request to login and get a token",
+        "tags": [
+          "Login"
+        ],
+        "requestBody": {
+          "description": "username and password",
+          "required": true,
+          "schema": {
+            "$ref": "contracts/loginContract.json#/postLoginRequest"
+          }
+        },
+        "produces": [
+          "application/json"
+        ]
+      }
+    }
+  },
+  "definitions": {},
+  "responses": {},
+  "parameters": {},
+  "securityDefinitions": {},
+  "tags": []
+}

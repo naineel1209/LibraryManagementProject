@@ -10,6 +10,10 @@ const { message } = require('./model/userModel');
 const cookieParser = require('cookie-parser');
 const { verifyToken } = require('./middlewares/authMiddleware')
 const connect2db = require('./database/connect2db.js')
+const swaggerUi = require('swagger-ui-express');
+const swaggerJson = require('./docs/swagger.json');
+const specs = require('./docs/swaggerDef.js');
+const swaggerJsdoc = require('swagger-jsdoc');
 
 const PORT = process.env.PORT || 3000;
 
@@ -18,6 +22,11 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(express.static('public'))
 app.use(cookieParser());
+
+// Serve the Swagger docs
+app.use('/docs', express.static('docs'));   //serve the swagger docs
+const swaggerDocs = swaggerJsdoc(specs);
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 //logging the incoming requests
 app.use(morgan('dev'))
@@ -43,7 +52,8 @@ app.use('/profile', require('./routes/profileRoutes'))
 
 //error handler
 app.use((err, req, res, next) => {
-    logger.error("Error: " + err.message)
+    logger.error("Error: " + err.message);
+
     res.statusMessage = err.statusMessage || "Something went wrong";
     return res.status(err.statusCode || 500).json({
         message: err.message,
@@ -54,7 +64,7 @@ app.use((err, req, res, next) => {
 async function startServer() {
     try {
         await connect2db();
-        app.listen(3000, () => {
+        app.listen(5000, () => {
             console.log(`Server is running on port ${PORT}`);
         })
     } catch (err) {

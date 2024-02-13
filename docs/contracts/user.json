@@ -1,0 +1,15 @@
+{
+    "user": {
+        "type": "object",
+        "properties": {
+            "_id": {
+                "type": "string",
+                "example": "65a8fc658ba1bebc7f579233"
+            },
+            "id": {
+                "type": "string",
+                "example": "65a8fc658ba1bebc7f579233"
+            }
+        }
+    }
+}

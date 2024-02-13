@@ -1,0 +1,30 @@
+{
+    "price": {
+        "type": "object",
+        "properties": {
+            "message": {
+                "type": "string"
+            },
+            "status": {
+                "type": "number",
+                "example": 200
+            },
+            "priceChart": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "rentalFee": {
+                            "type": "number",
+                            "example": "1000"
+                        },
+                        "lateFee": {
+                            "type": "number",
+                            "example": "1000"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,7 +1,25 @@
 const { Router } = require('express');
 const router = Router();
 
-//PATH: /books-helper - authenticated users 
+//PATH: /books-helper - authenticated users
+
+/**
+ * @swagger
+ * 
+ * /book-helper:
+ *  get:
+ *    description: Get instructions for login for book page
+ *    tags:
+ *      - Book Helper
+ *    produces:
+ *      - application/json
+ *    responses:
+ *      '200':
+ *          description: GET request successful
+ *          schema:
+ *              $ref: 'contracts/loginContract.json#/getLoginResponse'
+ */
+
 router
     .route('/')
     .get((req, res) => {

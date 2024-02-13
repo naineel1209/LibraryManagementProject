@@ -1,0 +1,28 @@
+{
+    "profile": {
+        "type": "object",
+        "properties": {
+            "currentUser": {
+                "$ref": "./user.json#/user"
+            },
+            "rentedBooks": {
+                "type": "array",
+                "items": {
+                    "$ref": "./book.json#/book"
+                }
+            },
+            "publishedBooks": {
+                "type": "array",
+                "items": {
+                    "$ref": "./book.json#/book"
+                }
+            },
+            "previousRentedBooks": {
+                "type": "array",
+                "items": {
+                    "$ref": "./book.json#/book"
+                }
+            }
+        }
+    }
+}

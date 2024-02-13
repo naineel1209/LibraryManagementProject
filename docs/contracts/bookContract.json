@@ -1,0 +1,97 @@
+{
+    "getAvailableBooks": {
+        "type": "object",
+        "properties": {
+            "message": {
+                "type": "string"
+            },
+            "availableBooks": {
+                "type": "array",
+                "items": {
+                    "$ref": "./book.json#/book"
+                }
+            }
+        }
+    },
+    "postBookRequest": {
+        "type": "object",
+        "properties": {
+            "title": {
+                "type": "string"
+            },
+            "type": {
+                "type": "string",
+                "enum": [
+                    "Fiction",
+                    "Non-Fiction",
+                    "Reference",
+                    "Other Types"
+                ]
+            },
+            "author": {
+                "type": "string"
+            }
+        }
+    },
+    "postBookResponse": {
+        "type": "object",
+        "properties": {
+            "message": {
+                "type": "string"
+            },
+            "book": {
+                "$ref": "./book.json#/book"
+            }
+        }
+    },
+    "getSingleBook": {
+        "type": "object",
+        "properties": {
+            "message": {
+                "type": "string"
+            },
+            "book": {
+                "$ref": "./book.json#/book"
+            }
+        }
+    },
+    "deleteSingleBook": {
+        "type": "object",
+        "properties": {
+            "message": {
+                "type": "string"
+            },
+            "book": {
+                "$ref": "./book.json#/book"
+            }
+        }
+    },
+    "patchBookRequest": {
+        "type": "object",
+        "properties": {
+            "title": {
+                "type": "string"
+            },
+            "type": {
+                "type": "string"
+            },
+            "author": {
+                "type": "string"
+            }
+        }
+    },
+    "patchBookResponse": {
+        "type": "object",
+        "properties": {
+            "message": {
+                "type": "string"
+            },
+            "status": {
+                "type": "string"
+            },
+            "book": {
+                "$ref": "./book.json#/book"
+            }
+        }
+    }
+}
